@@ -37,8 +37,11 @@ dependencies:
   freezed: ^3.2.5
   build_runner: ^2.11.1
   flutter_riverpod: ^3.2.1
+  logger: ^2.6.2
 
 dev_dependencies:
+  integration_test:
+    sdk: flutter
   flutter_test:
     sdk: flutter
 
