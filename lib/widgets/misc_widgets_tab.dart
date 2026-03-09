@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import '../utils/route_utils.dart';
+import '../pages/routing/simple_routing_page.dart';
+import '../pages/routing/multi_routing_page.dart';
+import '../pages/animations/implicit_animation_page.dart';
+import '../pages/animations/hero_animation_page.dart';
+import '../pages/animations/physics_simulation_page.dart';
+import '../pages/animations/staggered_animation_page.dart';
+import '../pages/animations/staggered_menu_page.dart';
 
 class MiscWidgetsTab extends StatelessWidget {
   final bool isCupertino;
@@ -110,6 +118,180 @@ class MiscWidgetsTab extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
             child: const Text('This is a filled (flat) iOS Container.'),
+          ),
+        ],
+        const SizedBox(height: 24),
+        const Text(
+          'Routing & Animations',
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: 8),
+        if (!isCupertino) ...[
+          ListTile(
+            leading: const Icon(Icons.arrow_forward),
+            title: const Text('Simple Route Navigation'),
+            subtitle: const Text('Page 1 -> Page 2'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => pushPage(
+              context,
+              isCupertino,
+              SimpleRoutePageOne(isCupertino: isCupertino),
+            ),
+          ),
+          const Divider(),
+          ListTile(
+            leading: const Icon(Icons.layers),
+            title: const Text('Multi-Page Routing'),
+            subtitle: const Text('Navigate deeply and pop with result'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => pushPage(
+              context,
+              isCupertino,
+              MultiRoutePageOne(isCupertino: isCupertino),
+            ),
+          ),
+          const Divider(),
+          ListTile(
+            leading: const Icon(Icons.animation),
+            title: const Text('Hero Animation Showcase'),
+            subtitle: const Text('Shared element transition'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => pushPage(
+              context,
+              isCupertino,
+              HeroAnimationPageOne(isCupertino: isCupertino),
+            ),
+          ),
+          const Divider(),
+          ListTile(
+            leading: const Icon(Icons.check_box_outline_blank),
+            title: const Text('Implicit Animations'),
+            subtitle: const Text('Animated properties'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => pushPage(
+              context,
+              isCupertino,
+              AnimationShowcasePage(isCupertino: isCupertino),
+            ),
+          ),
+          const Divider(),
+          ListTile(
+            leading: const Icon(Icons.sports_basketball),
+            title: const Text('Physics Simulation'),
+            subtitle: const Text('Spring-based animations'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => pushPage(
+              context,
+              isCupertino,
+              PhysicsSimulationPage(isCupertino: isCupertino),
+            ),
+          ),
+          const Divider(),
+          ListTile(
+            leading: const Icon(Icons.blur_linear),
+            title: const Text('Staggered Animation'),
+            subtitle: const Text('Sequential animation steps'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => pushPage(
+              context,
+              isCupertino,
+              StaggeredAnimationPage(isCupertino: isCupertino),
+            ),
+          ),
+          const Divider(),
+          ListTile(
+            leading: const Icon(Icons.menu),
+            title: const Text('Staggered Menu'),
+            subtitle: const Text('Animated expanding menu'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => pushPage(
+              context,
+              isCupertino,
+              StaggeredMenuPage(isCupertino: isCupertino),
+            ),
+          ),
+        ] else ...[
+          CupertinoListSection.insetGrouped(
+            margin: EdgeInsets.zero,
+            children: [
+              CupertinoListTile(
+                leading: const Icon(CupertinoIcons.arrow_right_circle),
+                title: const Text('Simple Route Navigation'),
+                subtitle: const Text('Page 1 -> Page 2'),
+                trailing: const CupertinoListTileChevron(),
+                onTap: () => pushPage(
+                  context,
+                  isCupertino,
+                  SimpleRoutePageOne(isCupertino: isCupertino),
+                ),
+              ),
+              CupertinoListTile(
+                leading: const Icon(CupertinoIcons.square_stack_3d_up),
+                title: const Text('Multi-Page Routing'),
+                subtitle: const Text('Navigate deeply and pop with result'),
+                trailing: const CupertinoListTileChevron(),
+                onTap: () => pushPage(
+                  context,
+                  isCupertino,
+                  MultiRoutePageOne(isCupertino: isCupertino),
+                ),
+              ),
+              CupertinoListTile(
+                leading: const Icon(CupertinoIcons.sparkles),
+                title: const Text('Hero Animation Showcase'),
+                subtitle: const Text('Shared element transition'),
+                trailing: const CupertinoListTileChevron(),
+                onTap: () => pushPage(
+                  context,
+                  isCupertino,
+                  HeroAnimationPageOne(isCupertino: isCupertino),
+                ),
+              ),
+              CupertinoListTile(
+                leading: const Icon(CupertinoIcons.play_circle),
+                title: const Text('Implicit Animations'),
+                subtitle: const Text('Animated properties'),
+                trailing: const CupertinoListTileChevron(),
+                onTap: () => pushPage(
+                  context,
+                  isCupertino,
+                  AnimationShowcasePage(isCupertino: isCupertino),
+                ),
+              ),
+              CupertinoListTile(
+                leading: const Icon(CupertinoIcons.sportscourt),
+                title: const Text('Physics Simulation'),
+                subtitle: const Text('Spring-based animations'),
+                trailing: const CupertinoListTileChevron(),
+                onTap: () => pushPage(
+                  context,
+                  isCupertino,
+                  PhysicsSimulationPage(isCupertino: isCupertino),
+                ),
+              ),
+              CupertinoListTile(
+                leading: const Icon(CupertinoIcons.bars),
+                title: const Text('Staggered Animation'),
+                subtitle: const Text('Sequential animation steps'),
+                trailing: const CupertinoListTileChevron(),
+                onTap: () => pushPage(
+                  context,
+                  isCupertino,
+                  StaggeredAnimationPage(isCupertino: isCupertino),
+                ),
+              ),
+              CupertinoListTile(
+                leading: const Icon(CupertinoIcons.list_bullet),
+                title: const Text('Staggered Menu'),
+                subtitle: const Text('Animated expanding menu'),
+                trailing: const CupertinoListTileChevron(),
+                onTap: () => pushPage(
+                  context,
+                  isCupertino,
+                  StaggeredMenuPage(isCupertino: isCupertino),
+                ),
+              ),
+            ],
           ),
         ],
         const SizedBox(height: 24),

@@ -22,7 +22,7 @@ class MyApp extends ConsumerWidget {
     return MaterialApp(
       key: ValueKey(designLanguage),
       title: 'Widgets Showcase',
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: true,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,

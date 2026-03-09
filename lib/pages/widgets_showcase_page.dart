@@ -20,7 +20,7 @@ class WidgetsShowcasePage extends ConsumerStatefulWidget {
 class _WidgetsShowcasePageState extends ConsumerState<WidgetsShowcasePage> {
   int _selectedTab = 0;
 
-  final _tabs = ['Basic', 'Inputs', 'Dialogs', 'Layout', 'Misc', 'Stream'];
+  final _tabs = ['Basic', 'Inputs', 'Dialogs', 'Layout', 'Stream', 'Misc'];
 
   Widget _buildMaterialPage() {
     return DefaultTabController(
@@ -39,8 +39,8 @@ class _WidgetsShowcasePageState extends ConsumerState<WidgetsShowcasePage> {
             InputWidgetsTab(isCupertino: false),
             DialogsTab(isCupertino: false),
             LayoutWidgetsTab(isCupertino: false),
-            MiscWidgetsTab(isCupertino: false),
             StreamWidgetsTab(isCupertino: false),
+            MiscWidgetsTab(isCupertino: false),
           ],
         ),
       ),
@@ -56,8 +56,8 @@ class _WidgetsShowcasePageState extends ConsumerState<WidgetsShowcasePage> {
             1: Text('Inputs', style: TextStyle(fontSize: 13)),
             2: Text('Dialogs', style: TextStyle(fontSize: 13)),
             3: Text('Layout', style: TextStyle(fontSize: 13)),
-            4: Text('Misc', style: TextStyle(fontSize: 13)),
             5: Text('Stream', style: TextStyle(fontSize: 13)),
+            4: Text('Misc', style: TextStyle(fontSize: 13)),
           },
           groupValue: _selectedTab,
           onValueChanged: (val) {
@@ -66,17 +66,17 @@ class _WidgetsShowcasePageState extends ConsumerState<WidgetsShowcasePage> {
         ),
       ),
       child: SafeArea(
-        child: Material(
-          type: MaterialType.transparency,
-          child: IndexedStack(
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: IndexedStack(
             index: _selectedTab,
             children: const [
               BasicWidgetsTab(isCupertino: true),
               InputWidgetsTab(isCupertino: true),
               DialogsTab(isCupertino: true),
               LayoutWidgetsTab(isCupertino: true),
-              MiscWidgetsTab(isCupertino: true),
               StreamWidgetsTab(isCupertino: true),
+              MiscWidgetsTab(isCupertino: true),
             ],
           ),
         ),
